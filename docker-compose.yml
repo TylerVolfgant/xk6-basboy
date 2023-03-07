@@ -1,0 +1,19 @@
+version: '3.1'
+
+services:
+
+  ksix:
+    image: ksixbasboy:0.0.2
+    container_name: ksixbasboy
+    tty: true
+    ports:
+    - "6565:6565"
+    volumes:
+    - ./test.js:/home/k6/sc/test.js:ro
+    networks:
+    - k6_net
+    environment:
+    - TZ=Europe/Moscow
+        
+networks:
+  k6_net:
